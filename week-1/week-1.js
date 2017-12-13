@@ -61,7 +61,7 @@ class Staff {
     getRole() {
         return `Role: ${this.role}`;
     }
-    getAge() {
+     get getAge() {
         let currentYear = new Date().getFullYear();
         return `Age: ${currentYear - this.birth.getFullYear()}`;
     }
@@ -104,7 +104,7 @@ space();
 // checking the Staff methods 
 console.log(nolan.getName());
 console.log(nolan.getRole());
-console.log(nolan.getAge());
+console.log(nolan.getAge);
 space();
 // checking the requests
 
