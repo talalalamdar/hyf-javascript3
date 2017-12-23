@@ -21,16 +21,16 @@ function checkTheName() {
     requests();
 
     function requests() {
-        let firstRquest = new XMLHttpRequest();
-        firstRquest.onreadystatechange = () => {
-            if (firstRquest.readyState === XMLHttpRequest.DONE) {
-                if (firstRquest.status !== 200) {
+        let firstRequest = new XMLHttpRequest();
+        firstRequest.onreadystatechange = () => {
+            if (firstRequest.readyState === XMLHttpRequest.DONE) {
+                if (firstRequest.status !== 200) {
                     console.log("not 200");
                     h2.innerHTML = "This username doesn't exist"
                 } 
                 else {
                     console.log("loaded first request")
-                    let data = JSON.parse(firstRquest.responseText);
+                    let data = JSON.parse(firstRequest.responseText);
                     let imageSrc = data.avatar_url;
                     img.src = imageSrc;
                     h2.innerHTML = userName;
@@ -76,7 +76,6 @@ function checkTheName() {
                                     thirdRequest.open("GET", url2);
                                     thirdRequest.send()
                                 });
-
                             }
                         }
                     }
@@ -86,8 +85,8 @@ function checkTheName() {
                 }
             }
         };
-        firstRquest.open("GET", "https://api.github.com/users/" + userName);
-        firstRquest.send();
+        firstRequest.open("GET", "https://api.github.com/users/" + userName);
+        firstRequest.send();
     }
 }
 
