@@ -1,0 +1,94 @@
+#header {
+    background-color: rgb(38, 33, 33);
+    height: 250px;;
+    text-align: center;
+    border-radius:40px;
+}
+#para {
+    color: gray;
+    padding-top: 130px ;
+    position: relative;
+    left : 30px;
+    font-size: 22px;
+    font-family: sans-serif, serif;
+}
+#search-box, #submit-button {
+    position: relative;
+    left : 200px;
+}
+#left-logo {
+    float: left;
+    margin-left : 100px;
+}
+.left-div {
+    width:30%;
+}
+#gif-logo {
+    float:left;
+    width : 100%;
+    padding: 30px;
+
+}
+#details-div {
+    display: flex;
+    flex-wrap: wrap;
+    width : 60%;
+    float: right;
+    background-color : rgba(26, 2, 2, 0.029);
+    margin-top:40px;
+    font-size: 22px;
+}
+.profile-pic {
+    width : 30%;
+    height : 35%;
+    float : right;
+    box-shadow: 3px 2px 3px 2px  gray;
+    border-radius: 50%;
+    border : 2px solid black;
+    margin-left :20px;  
+   
+}
+h2 {
+    background-color: rgb(38, 33, 33);
+    color : white;
+    font-size: 30px;
+    display: inline-flex;
+    height : 30px;
+    width : 100%;
+    padding : 10px;
+     border-radius:40px;
+    padding-left : 20px;
+   
+}
+h3 {
+    width :60%;
+    margin : 0px;
+    font-size: 25px;
+    padding: 7px;
+} 
+li p {
+    font-size :15px;
+}
+h3 li {
+    width :90%;
+    border:2px solid black;
+    margin :5px;
+    padding : 10px;
+    border-radius: 20px;
+}
+@media only screen and (min-width:200px) and (max-width:700px)  {
+    #gif-logo {
+        display: none;
+    }
+    #details-div {
+        width :100%;
+    }
+    #para {
+        display: inline-block;
+        margin : auto;
+        right : 200px;
+    }
+    #search-box, #submit-button {
+        margin :auto;  
+    }
+} 
