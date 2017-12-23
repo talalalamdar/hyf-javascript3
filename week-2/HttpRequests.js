@@ -17,7 +17,7 @@ function checkTheName() {
     detailsDiv.appendChild(h3);
     let img = document.createElement("img");
     img.className = "profile-pic"
-    detailsDiv.appendChild(img);
+    
     requests();
 
     function requests() {
@@ -34,36 +34,37 @@ function checkTheName() {
                     let imageSrc = data.avatar_url;
                     img.src = imageSrc;
                     h2.innerHTML = userName;
+                    detailsDiv.appendChild(img);
 
                     let secondRequest = new XMLHttpRequest();
                     secondRequest.onreadystatechange = () => {
                         if (secondRequest.readyState === XMLHttpRequest.DONE) {
                             if (secondRequest.status !== 200) {
                                 console.log("not 200");
-                                h3.innerHTML = "Something went wrong"
+                                h3.innerHTML = "Something went wrong, couldn't reach the repositories"
                             } else {
                                 console.log("loaded second request")
                                 let repoName = "";
                                 let data2 = JSON.parse(secondRequest.responseText)
-                                data2.map(repo => {
-                                    console.log(data2)
-                                    console.log("the map is working")
-                                    let li = document.createElement("li");
+                                data2.forEach(repo => {
+                                   
                                     repoName = repo.name;
-                                    li.innerHTML = repoName;
+                                    let li = document.createElement("li");
                                     h3.innerHTML = userName + "'s repositories:"
-                                    h3.appendChild(li);
+                                    li.innerHTML = repoName;
+                                    
 
                                     let thirdRequest = new XMLHttpRequest();
                                     thirdRequest.onreadystatechange = () => {
                                         if (thirdRequest.readyState === XMLHttpRequest.DONE) {
                                             if (thirdRequest.status !== 200) {
                                                 console.log("not 200")
-                                                h3.innerHTML = "Something went wrong"
+                                                h3.innerHTML = "Something went wrong, couldn't reach the commits"
                                             } else {
                                                 console.log("loaded third request");
                                                 let data3 = JSON.parse(thirdRequest.responseText)
-                                                let lastCommit = data3[0]
+                                                let lastCommit = data3[0]  
+                                                h3.appendChild(li);
                                                 let p = document.createElement("p");
                                                 let commitDate = lastCommit.commit.author.date;
                                                 let commitAuthor = lastCommit.commit.author.name
