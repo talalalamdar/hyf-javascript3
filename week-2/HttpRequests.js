@@ -52,6 +52,9 @@ function checkTheName() {
                                     let li = document.createElement("li");
                                     li.innerHTML = repoName;
                                     h3.innerHTML = userName + "'s repositories:"
+                                    let link = repo.html_url;
+                                    let a = document.createElement("a");
+                                    a.href = link;
 
 
                                     let thirdRequest = new XMLHttpRequest();
@@ -67,13 +70,15 @@ function checkTheName() {
                                                 let authorImg = document.createElement("img");
                                                 authorImg.src = lastCommit.author.avatar_url;
                                                 authorImg.className = 'author-img'
-                                                h3.appendChild(li);
+                                                h3.appendChild(a);
                                                 let p = document.createElement("p");
                                                 let commitDate = lastCommit.commit.author.date;
                                                 let commitAuthor = lastCommit.commit.author.name
                                                 p.innerHTML = "last commit was at " + commitDate + " by " + commitAuthor
                                                 li.appendChild(p)
                                                 li.appendChild(authorImg);
+                                                a.appendChild(li);
+                                              
                                             }
                                         }
                                     }
