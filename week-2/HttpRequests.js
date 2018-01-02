@@ -74,7 +74,7 @@ function checkTheName() {
                                                 let p = document.createElement("p");
                                                 let commitDate = lastCommit.commit.author.date;
                                                 let commitAuthor = lastCommit.commit.author.name
-                                                p.innerHTML = "last commit was at " + commitDate + " by " + commitAuthor
+                                                p.innerHTML = "Last commit was at " + commitDate + " by " + commitAuthor
                                                 li.appendChild(p)
                                                 li.appendChild(authorImg);
                                                 a.appendChild(li);
