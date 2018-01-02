@@ -12,7 +12,7 @@ img.className = "profile-pic"
 
 
 function checkTheName() {
-    
+
     detailsDiv.innerHTML = "";
     let userName = searchBox.value;
     detailsDiv.appendChild(h2)
@@ -78,7 +78,7 @@ function checkTheName() {
                                                 li.appendChild(p)
                                                 li.appendChild(authorImg);
                                                 a.appendChild(li);
-                                              
+
                                             }
                                         }
                                     }
