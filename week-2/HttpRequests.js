@@ -1,9 +1,9 @@
 let searchBox = document.getElementById("search-box");
 let div = document.createElement("div");
-document.body.appendChild(div);                                                  // Creating some nodes like divs, image, input field, adn the contents
-div.id = "details-div";                                                          // of the file, and adding an event listener to the search button                                                     
-let detailsDiv = document.getElementById("details-div");                        
-let h2 = document.createElement("h2");
+document.body.appendChild(div);                                                  // Creating some nodes like divs, image,
+div.id = "details-div";                                                          //  input field, adn the contents                                                     
+let detailsDiv = document.getElementById("details-div");                         // of the file, and adding an event listener to 
+let h2 = document.createElement("h2");                                           // the search button 
 let h3 = document.createElement("h3");
 let img = document.createElement("img");
 img.className = "profile-pic";
@@ -11,8 +11,8 @@ let profilePic = document.getElementsByClassName("profile-pic");
 let submitBut = document.getElementById("submit-button");
 submitBut.addEventListener("click", checkTheName);
 
-function checkTheName() {                                   // this function runs when pressing the search button, and it makes http requests
-    detailsDiv.innerHTML = "";                  
+function checkTheName() {                                   // this function runs when pressing 
+    detailsDiv.innerHTML = "";                              // the search button, and it makes http requests
     let userName = searchBox.value;
     detailsDiv.appendChild(h2);
     detailsDiv.appendChild(h3);
@@ -50,8 +50,8 @@ function checkTheName() {                                   // this function run
         })
 }
 
-function makeRequest(url) {                         // this function to create an Http request and checks if it is successful   
-    let request = new XMLHttpRequest();
+function makeRequest(url) {                         // this function to create an Http request    
+    let request = new XMLHttpRequest();             // and checks if it is successful
     let requestIsDone = (success, failure) => {
         if (request.readyState == XMLHttpRequest.DONE) {
             if (request.status !== 200) {
