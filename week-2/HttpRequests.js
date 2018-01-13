@@ -16,7 +16,6 @@ function checkTheName() {                                   // this function run
     let userName = searchBox.value;
     detailsDiv.appendChild(h2);
     detailsDiv.appendChild(h3);
-
     makeRequest("https://api.github.com/users/" + userName + "/repos")
         .then((data) => {
             img.src = data[0].owner.avatar_url;
@@ -50,23 +49,23 @@ function checkTheName() {                                   // this function run
         })
 }
 
-function makeRequest(url) {                         // this function to create an Http request    
-    let request = new XMLHttpRequest();             // and checks if it is successful
-    let requestIsDone = (success, failure) => {
-        if (request.readyState == XMLHttpRequest.DONE) {
-            if (request.status !== 200) {
-                console.log("The request failed");
-                failure(request.responseText);
-            } else {
-                console.log("Request is loaded");
-                success(JSON.parse(request.responseText));
+function makeRequest(url) {
+    return new Promise((resolve, reject) => {                       // this function to create an Http request    
+        let request = new XMLHttpRequest();                         // and checks if it is successful
+        request.onreadystatechange = () => {
+            if (request.readyState == XMLHttpRequest.DONE) {
+                if (request.status !== 200) {
+                    console.log("The request failed");
+                    reject(request.responseText);
+                } else {
+                    console.log("Request is loaded");
+                    resolve(JSON.parse(request.responseText));
+                }
             }
         }
-    }
-    request.open("GET", url);
-    //request.setRequestHeader("Authorization", "Basic " + btoa("talalalamdar:<token Api>"));
-    return new Promise((resolve, reject) => {
-        request.onreadystatechange = () => requestIsDone(resolve, reject);
+        request.open("GET", url);
+        //request.setRequestHeader("Authorization", "Basic " + btoa("talalalamdar:<token Api>"));
         request.send();
-    });
+
+    })
 }
